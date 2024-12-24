@@ -2,6 +2,9 @@ import streamlit as st
 from transformers import pipeline
 import tempfile
 import os
+# Add the path to the 'bin' directory of FFmpeg to the system's PATH environment variable.
+# This ensures that the Python program can locate and use the FFmpeg executable for audio and video processing.
+# Replace 'C:\ffmpeg\bin' with the actual path where FFmpeg is installed if it differs.
 os.environ["PATH"] += os.pathsep + r"C:\ffmpeg\bin"
 
 
