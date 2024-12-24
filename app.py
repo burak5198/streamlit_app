@@ -101,9 +101,26 @@ def main():
         entities = extract_entities(transcribed_text, ner_pipeline)
 
         # Display Entities
-        st.write("**Persons (PER):**", ", ".join(entities['PER']) or "None")
-        st.write("**Organizations (ORG):**", ", ".join(entities['ORG']) or "None")
-        st.write("**Locations (LOC):**", ", ".join(entities['LOC']) or "None")
+        st.subheader("Persons (PER):")
+        if entities['PER']:
+            for person in entities['PER']:
+                st.write(f"- {person}")
+        else:
+            st.write("None")
+        
+        st.subheader("Organizations (ORG):")
+        if entities['ORG']:
+            for org in entities['ORG']:
+                st.write(f"- {org}")
+        else:
+            st.write("None")
+        
+        st.subheader("Locations (LOC):")
+        if entities['LOC']:
+            for loc in entities['LOC']:
+                st.write(f"- {loc}")
+        else:
+            st.write("None")
 
 
 if __name__ == "__main__":
